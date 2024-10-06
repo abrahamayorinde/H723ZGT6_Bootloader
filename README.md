@@ -35,17 +35,17 @@ Header Frame
 | 1 byte | 1 byte | 2 bytes | 16 bytes | 4 bytes | 1 byte |
 | 0xAA | 0x02 | 0x0010 | 0x?? 0x?? 0x?? 0x??| 0x00 | 0xBB|
 
-The 'Meta Data' field is made up of four parts: 
-The Package size field (4 bytes, The full size of the application to be upload. A maximum of 4294967296 bytes),
-Package CRC (4 bytes, currently always 0x00000000),  
-Reserved1 (4 bytes, unused),  
-Reserved2 (4 bytes, unused)
+The 'Meta Data' field is made up of four parts:  
+Package size - (4 bytes, The full size of the application to be upload. A maximum of 4294967296 bytes)  
+Package CRC - (4 bytes, currently always 0x00000000)  
+Reserved1 - (4 bytes, unused always 0x00000000),  
+Reserved2 - (4 bytes, unused always 0x00000000)
 
 Data Frame
 | Start of Frame (SOF) | Packet Type | Data Length | Data | CRC | End of Frame (EOF)
 | -------- | ------- |------- |------- |------- |------- |
 | 1 byte | 1 byte | 2 bytes | n bytes | 4 bytes | 1 byte |
-| 0xAA | 0x01 | 0x???? | (Data bytes) | 0x00 | 0xBB |
+| 0xAA | 0x01 | 0x0000 - 0x0400 | (Data bytes) | 0x00 | 0xBB |
 
 The 'Data Length' field of the Data Frame is a maximum of 1024 bytes.
 
